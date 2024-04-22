@@ -1,4 +1,19 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+void validarNota(double notaIngresada) {
+    if ((notaIngresada < 1) | (notaIngresada > 10)) {
+        // Error
+        Console.WriteLine($"El valor de la nota ingresada está fuera de rango.");
+    } else {
+        // Valor ok
+        if (notaIngresada >= 6) {
+            Console.WriteLine($"La persona aprobó el examen con nota: {notaIngresada}");
+        } else {
+            Console.WriteLine($"La persona no aprobó el examen");
+        }
+    }
+}
+
 Console.WriteLine("Datos de un estudiante:");
 
 // Declaración de variables
@@ -19,11 +34,8 @@ Console.WriteLine($"Ingrese la nota de un examen para {nombrePersona}:");
 respuesta = Console.ReadLine();
 double nota;
 if (double.TryParse(respuesta, out nota)) {
-    if (nota >= 6) {
-        Console.WriteLine($"La persona, {nombrePersona}, aprobó el examen con nota: {nota}");
-    } else {
-        Console.WriteLine($"La persona, {nombrePersona}, no aprobó el examen");
-    }
+    // Código de la función a generar
+    validarNota(nota);
 } else {
     Console.WriteLine("No se ingresó un valor válido para la nota.");
 }
