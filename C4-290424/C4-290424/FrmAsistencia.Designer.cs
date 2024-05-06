@@ -1,6 +1,6 @@
 ﻿namespace C4_290424
 {
-    partial class Form1
+    partial class frmAsistencia
     {
         /// <summary>
         ///  Required designer variable.
@@ -34,6 +34,9 @@
             lstAsistentes = new ListBox();
             btnAgregar = new Button();
             label3 = new Label();
+            lblContador = new Label();
+            btnReiniciar = new Button();
+            btnSalir = new Button();
             SuspendLayout();
             // 
             // label1
@@ -60,6 +63,7 @@
             txtNombrePersona.Name = "txtNombrePersona";
             txtNombrePersona.Size = new Size(328, 34);
             txtNombrePersona.TabIndex = 2;
+            txtNombrePersona.KeyPress += txtNombrePersona_KeyPress;
             // 
             // lstAsistentes
             // 
@@ -89,11 +93,43 @@
             label3.TabIndex = 5;
             label3.Text = "Listado de asistentes:";
             // 
-            // Form1
+            // lblContador
+            // 
+            lblContador.AutoSize = true;
+            lblContador.Location = new Point(445, 189);
+            lblContador.Name = "lblContador";
+            lblContador.Size = new Size(211, 28);
+            lblContador.TabIndex = 6;
+            lblContador.Text = "Cantidad de asistentes:";
+            // 
+            // btnReiniciar
+            // 
+            btnReiniciar.Location = new Point(380, 423);
+            btnReiniciar.Name = "btnReiniciar";
+            btnReiniciar.Size = new Size(213, 48);
+            btnReiniciar.TabIndex = 7;
+            btnReiniciar.Text = "Reiniciar operación";
+            btnReiniciar.UseVisualStyleBackColor = true;
+            btnReiniciar.Click += btnReiniciar_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(599, 423);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(213, 48);
+            btnSalir.TabIndex = 8;
+            btnSalir.Text = "Salir a inicio";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // frmAsistencia
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 630);
+            ClientSize = new Size(824, 488);
+            Controls.Add(btnSalir);
+            Controls.Add(btnReiniciar);
+            Controls.Add(lblContador);
             Controls.Add(label3);
             Controls.Add(btnAgregar);
             Controls.Add(lstAsistentes);
@@ -102,8 +138,8 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "frmAsistencia";
+            Text = "Control de asistencia a clases";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +152,8 @@
         private ListBox lstAsistentes;
         private Button btnAgregar;
         private Label label3;
+        private Label lblContador;
+        private Button btnReiniciar;
+        private Button btnSalir;
     }
 }
