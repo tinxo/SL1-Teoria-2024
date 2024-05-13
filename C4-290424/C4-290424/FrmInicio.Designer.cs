@@ -50,7 +50,6 @@
             btnAsistencia.TabIndex = 1;
             btnAsistencia.Text = "Formulario de Asistencia";
             btnAsistencia.UseVisualStyleBackColor = true;
-            btnAsistencia.Click += btnAsistencia_Click;
             // 
             // btnNotas
             // 
@@ -60,7 +59,6 @@
             btnNotas.TabIndex = 2;
             btnNotas.Text = "Formulario de Notas";
             btnNotas.UseVisualStyleBackColor = true;
-            //btnNotas.Click += btnNotas_Click;
             // 
             // FrmInicio
             // 

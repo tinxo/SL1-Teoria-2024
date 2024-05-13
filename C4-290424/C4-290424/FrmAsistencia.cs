@@ -51,13 +51,19 @@ namespace C4_290424
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            // Limpiar la lista
-            this.lstAsistentes.Items.Clear();
-            // Volver a valor por defecto a lbl de conteo
-            this.lblContador.Text = this.textoContador;
-            // Volver al txtbox de nombre a vacío
-            this.txtNombrePersona.Text = "";
-            txtNombrePersona.Focus();
+            DialogResult respuesta = MessageBox.Show("¿Quiene reiniciar listado?",
+                "Atención!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (respuesta == DialogResult.Yes)
+            {
+                // Limpiar la lista
+                this.lstAsistentes.Items.Clear();
+                // Volver a valor por defecto a lbl de conteo
+                this.lblContador.Text = this.textoContador;
+                // Volver al txtbox de nombre a vacío
+                this.txtNombrePersona.Text = "";
+                txtNombrePersona.Focus();
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

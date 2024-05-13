@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C3_230424_V2;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,15 +22,22 @@ namespace C4_290424
             this.btnNotas.Click += new EventHandler(botones_click);
         }
 
-        private void btnAsistencia_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void botones_click(object sender, EventArgs e)
         {
             Button btnPresionado = sender as Button;
-            MessageBox.Show($"El boton presionado fue: {btnPresionado.Name}");
+            //MessageBox.Show($"El boton presionado fue: {btnPresionado.Name}");
+            if (btnPresionado.Text.ToLower().Contains("asistencia"))
+            {
+                frmAsistencia frm = new frmAsistencia();
+                frm.ShowDialog();
+            } else
+            {
+                // Form1 frm = new Form1();
+                // frm.ShowDialog();
+            }
+
+            
         }
+
     }
 }
