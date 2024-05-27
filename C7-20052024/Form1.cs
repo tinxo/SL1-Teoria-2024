@@ -11,9 +11,15 @@ namespace C7_20052024
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Productos unProducto = new Productos("1234567880",
-                "Termo Termolar 1lt",
-                "Termo marca Termolar de 1lt de capacidad color negro");
+            // Se leen los valores desde la interfaz
+            string idIngresado = txtID.Text;
+            string nombreIngresado = txtNombre.Text;        
+            string descripcionIngresada = txtDescripcion.Text;
+            double precioUnitarioIngresado = (double)nupPrecioUnitario.Value;
+            // Se genera el objeto Producto
+            Productos unProducto = new Productos(idIngresado,
+                nombreIngresado, descripcionIngresada,
+                precioUnitarioIngresado);
             string nombreProducto = unProducto.Nombre;
             MessageBox.Show($"El producto creado fue: {nombreProducto}");
         }
