@@ -77,6 +77,19 @@ namespace C7_20052024.Stock
             }
         }
 
+        public int StockActual 
+        {
+            get 
+            {
+                int stockActual = 0;
+                foreach (var movimiento in this._movimientos)
+                {
+                    stockActual += movimiento.Cantidad;
+                }
+                return stockActual;
+            }
+        }
+
         // Se define la lista de movimientos de stock
         private List<Movimiento> _movimientos = new List<Movimiento>();
 

@@ -39,14 +39,23 @@
             txtDescripcion = new TextBox();
             nupPrecioUnitario = new NumericUpDown();
             nupStockMinimo = new NumericUpDown();
+            cbxTipoMovimiento = new ComboBox();
+            label6 = new Label();
+            nupCantidadUnivdades = new NumericUpDown();
+            label7 = new Label();
+            txtObservaciones = new TextBox();
+            label8 = new Label();
+            button2 = new Button();
+            lblProducto = new Label();
             ((System.ComponentModel.ISupportInitialize)nupPrecioUnitario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupStockMinimo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nupCantidadUnivdades).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Location = new Point(580, 228);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(296, 59);
             button1.TabIndex = 0;
@@ -141,11 +150,89 @@
             nupStockMinimo.Size = new Size(117, 34);
             nupStockMinimo.TabIndex = 10;
             // 
+            // cbxTipoMovimiento
+            // 
+            cbxTipoMovimiento.FormattingEnabled = true;
+            cbxTipoMovimiento.Items.AddRange(new object[] { "Ingreso", "Egreso" });
+            cbxTipoMovimiento.Location = new Point(252, 308);
+            cbxTipoMovimiento.Name = "cbxTipoMovimiento";
+            cbxTipoMovimiento.Size = new Size(200, 36);
+            cbxTipoMovimiento.TabIndex = 11;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(16, 311);
+            label6.Name = "label6";
+            label6.Size = new Size(189, 28);
+            label6.TabIndex = 12;
+            label6.Text = "Tipo de movimiento";
+            // 
+            // nupCantidadUnivdades
+            // 
+            nupCantidadUnivdades.Location = new Point(252, 362);
+            nupCantidadUnivdades.Name = "nupCantidadUnivdades";
+            nupCantidadUnivdades.Size = new Size(150, 34);
+            nupCantidadUnivdades.TabIndex = 13;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(16, 364);
+            label7.Name = "label7";
+            label7.Size = new Size(202, 28);
+            label7.TabIndex = 14;
+            label7.Text = "Cantidad de unidades";
+            // 
+            // txtObservaciones
+            // 
+            txtObservaciones.Location = new Point(252, 413);
+            txtObservaciones.Name = "txtObservaciones";
+            txtObservaciones.Size = new Size(200, 34);
+            txtObservaciones.TabIndex = 15;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(16, 416);
+            label8.Name = "label8";
+            label8.Size = new Size(139, 28);
+            label8.TabIndex = 16;
+            label8.Text = "Observaciones";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(580, 385);
+            button2.Margin = new Padding(4);
+            button2.Name = "button2";
+            button2.Size = new Size(296, 59);
+            button2.TabIndex = 17;
+            button2.Text = "Cargar movimiento";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // lblProducto
+            // 
+            lblProducto.AutoSize = true;
+            lblProducto.Location = new Point(73, 243);
+            lblProducto.Name = "lblProducto";
+            lblProducto.Size = new Size(97, 28);
+            lblProducto.TabIndex = 18;
+            lblProducto.Text = "Producto:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(889, 630);
+            Controls.Add(lblProducto);
+            Controls.Add(button2);
+            Controls.Add(label8);
+            Controls.Add(txtObservaciones);
+            Controls.Add(label7);
+            Controls.Add(nupCantidadUnivdades);
+            Controls.Add(label6);
+            Controls.Add(cbxTipoMovimiento);
             Controls.Add(nupStockMinimo);
             Controls.Add(nupPrecioUnitario);
             Controls.Add(txtDescripcion);
@@ -158,11 +245,12 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Font = new Font("Segoe UI", 12F);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)nupPrecioUnitario).EndInit();
             ((System.ComponentModel.ISupportInitialize)nupStockMinimo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nupCantidadUnivdades).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,5 +268,13 @@
         private TextBox txtDescripcion;
         private NumericUpDown nupPrecioUnitario;
         private NumericUpDown nupStockMinimo;
+        private ComboBox cbxTipoMovimiento;
+        private Label label6;
+        private NumericUpDown nupCantidadUnivdades;
+        private Label label7;
+        private TextBox txtObservaciones;
+        private Label label8;
+        private Button button2;
+        private Label lblProducto;
     }
 }
