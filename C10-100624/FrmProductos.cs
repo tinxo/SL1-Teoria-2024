@@ -31,36 +31,62 @@ namespace C10_100624
             string nombreIngresado = txtNombre.Text;
             string descripcionIngresada = txtDescripcion.Text;
             double precioUnitarioIngresado = (double)nupPrecioUnitario.Value;
-            int stockMinimo = (int)nupStockMinimo.Value;
-            // Se genera el objeto Producto
-            Producto productoTemp = new Producto(idIngresado,
-                nombreIngresado, descripcionIngresada,
-                precioUnitarioIngresado, stockMinimo);
-            // Se carga en la lista en memoria
-            this._listaProductos.Add(productoTemp);
+            int stockMinimoIngresado = (int)nupStockMinimo.Value;
+
+            if (this.btnCargar.Text.Contains("Cargar"))
+            {
+                // Se genera el objeto Producto
+                Producto productoTemp = new Producto(idIngresado,
+                    nombreIngresado, descripcionIngresada,
+                    precioUnitarioIngresado, stockMinimoIngresado);
+                // Se carga en la lista en memoria
+                this._listaProductos.Add(productoTemp);
+            }
+            else
+            {
+                // Estamos EDITANDO
+                _unProducto.Nombre = nombreIngresado;
+                _unProducto.Descripcion = descripcionIngresada;
+                _unProducto.PrecioUnitario = precioUnitarioIngresado;
+                _unProducto.StockMinimo = stockMinimoIngresado;
+                //this._listaProductos[this.lstProductos.SelectedIndex] = productoTemp;
+                // Volvemos a dejar la UI como al inicio
+                this.btnCargar.Text = "Cargar producto";
+                this.txtID.Enabled = true;
+            }
+
             // Se carga en el listbox para visualización
             this.sincronizarListado();
         }
 
         private void btnCrearMovimiento_Click(object sender, EventArgs e)
         {
-            // Se necesita un movimiento seleccionado
-            _unProducto = this._listaProductos[0];
-            // Se va a cargar un movimiento nuevo
-            int cantidadIngresada = (int)this.nupCantidad.Value;
-            string observacionesMovimiento = this.txtObservaciones.Text;
-            if (this.cbxTipoMovimiento.SelectedIndex == 0)
+            if (this.lstProductos.SelectedIndex != -1)
             {
-                // Ingreso
-                _unProducto.agregarUnidades("123", cantidadIngresada, DateTime.Now, observacionesMovimiento);
+                // Hay algo seleccionado
+                // Se necesita un movimiento seleccionado
+                _unProducto = this._listaProductos[this.lstProductos.SelectedIndex];
+                // Se va a cargar un movimiento nuevo
+                int cantidadIngresada = (int)this.nupCantidad.Value;
+                string observacionesMovimiento = this.txtObservaciones.Text;
+                if (this.cbxTipoMovimiento.SelectedIndex == 0)
+                {
+                    // Ingreso
+                    _unProducto.agregarUnidades("123", cantidadIngresada, DateTime.Now, observacionesMovimiento);
+                }
+                else
+                {
+                    // Egreso
+                    _unProducto.restarUnidades("123", cantidadIngresada, DateTime.Now, observacionesMovimiento);
+                }
+                // Se actualiza en el listbox la visualización
+                this.sincronizarListado();
             }
             else
             {
-                // Egreso
-                _unProducto.restarUnidades("123", cantidadIngresada, DateTime.Now, observacionesMovimiento);
+                MessageBox.Show("Se tiene que seleccionar un Producto desde la lista.");
             }
-            // Se actualiza en el listbox la visualización
-            this.sincronizarListado();
+
         }
 
         private void sincronizarListado()
@@ -69,6 +95,47 @@ namespace C10_100624
             foreach (var producto in this._listaProductos)
             {
                 this.lstProductos.Items.Add(producto);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (this.lstProductos.SelectedIndex != -1)
+            {
+                // Hay algo seleccionado
+                // Se necesita un movimiento seleccionado
+                _unProducto = this._listaProductos[this.lstProductos.SelectedIndex];
+                // Carga de los valores del objeto en la UI
+                this.txtID.Text = _unProducto.Id;
+                this.txtID.Enabled = false;
+                this.txtNombre.Text = _unProducto.Nombre;
+                this.txtDescripcion.Text = _unProducto.Descripcion;
+                this.nupPrecioUnitario.Value = (decimal)_unProducto.PrecioUnitario;
+                this.nupStockMinimo.Value = (int)_unProducto.StockMinimo;
+                // Reescritura del text del btnCargar para que sea de guardado
+                this.btnCargar.Text = "Guardar cambios";
+            }
+            else
+            {
+                MessageBox.Show("Se tiene que seleccionar un Producto desde la lista.");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.lstProductos.SelectedIndex != -1)
+            {
+                // Hay algo seleccionado
+                DialogResult respuesta = MessageBox.Show("Esta por eliminar el producto, ¿esta seguro?", "Pregunta", MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes) { 
+                    this._listaProductos.RemoveAt(this.lstProductos.SelectedIndex);
+                }
+                // Se actualiza en el listbox la visualización
+                this.sincronizarListado();
+            }
+            else
+            {
+                MessageBox.Show("Se tiene que seleccionar un Producto desde la lista.");
             }
         }
     }

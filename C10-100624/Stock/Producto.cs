@@ -116,7 +116,8 @@ namespace C10_100624.Stock
         public override string ToString()
         {
             // Personaliza la representación de la instancia como cadena
-            return $"{_nombre} [{_id}] | PU AR$ {_precioUnitario} | Stock mínimo: {_stockMinimo} | Stock actual: {StockActual}";
+            return $"{_nombre} [{_id}] | PU AR$ {_precioUnitario}" +
+                $" | Stock mínimo: {_stockMinimo} | Stock actual: {StockActual}";
         }
     }
 }

@@ -44,7 +44,6 @@
             label7 = new Label();
             lstProductos = new ListBox();
             label9 = new Label();
-            btnEditar = new Button();
             grpMovimientos = new GroupBox();
             btnCrearMovimiento = new Button();
             txtObservaciones = new TextBox();
@@ -53,6 +52,8 @@
             label12 = new Label();
             label11 = new Label();
             label10 = new Label();
+            btnEditar = new Button();
+            btnEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)nupPrecioUnitario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupStockMinimo).BeginInit();
             grpMovimientos.SuspendLayout();
@@ -186,7 +187,7 @@
             lstProductos.ItemHeight = 28;
             lstProductos.Location = new Point(12, 317);
             lstProductos.Name = "lstProductos";
-            lstProductos.Size = new Size(676, 144);
+            lstProductos.Size = new Size(803, 144);
             lstProductos.TabIndex = 15;
             // 
             // label9
@@ -198,15 +199,6 @@
             label9.Size = new Size(203, 28);
             label9.TabIndex = 16;
             label9.Text = "Productos cargados:";
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(832, 317);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(213, 54);
-            btnEditar.TabIndex = 17;
-            btnEditar.Text = "Editar producto";
-            btnEditar.UseVisualStyleBackColor = true;
             // 
             // grpMovimientos
             // 
@@ -286,13 +278,34 @@
             label10.TabIndex = 0;
             label10.Text = "Tipo de movimeinto:";
             // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(832, 317);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(213, 54);
+            btnEditar.TabIndex = 19;
+            btnEditar.Text = "Editar producto";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(832, 377);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(213, 54);
+            btnEliminar.TabIndex = 20;
+            btnEliminar.Text = "Eliminar producto";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
             // FrmProductos
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1082, 663);
-            Controls.Add(grpMovimientos);
+            Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
+            Controls.Add(grpMovimientos);
             Controls.Add(label9);
             Controls.Add(lstProductos);
             Controls.Add(label7);
@@ -340,7 +353,6 @@
         private Label label7;
         private ListBox lstProductos;
         private Label label9;
-        private Button btnEditar;
         private GroupBox grpMovimientos;
         private Button btnCrearMovimiento;
         private TextBox txtObservaciones;
@@ -349,5 +361,7 @@
         private Label label12;
         private Label label11;
         private Label label10;
+        private Button btnEditar;
+        private Button btnEliminar;
     }
 }
