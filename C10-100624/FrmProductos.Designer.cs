@@ -54,6 +54,7 @@
             label10 = new Label();
             btnEditar = new Button();
             btnEliminar = new Button();
+            btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)nupPrecioUnitario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupStockMinimo).BeginInit();
             grpMovimientos.SuspendLayout();
@@ -298,11 +299,22 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(832, 46);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(213, 54);
+            btnBuscar.TabIndex = 21;
+            btnBuscar.Text = "Buscar producto";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
             // FrmProductos
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1082, 663);
+            Controls.Add(btnBuscar);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
             Controls.Add(grpMovimientos);
@@ -363,5 +375,6 @@
         private Label label10;
         private Button btnEditar;
         private Button btnEliminar;
+        private Button btnBuscar;
     }
 }

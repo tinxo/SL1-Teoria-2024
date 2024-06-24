@@ -127,7 +127,8 @@ namespace C10_100624
             {
                 // Hay algo seleccionado
                 DialogResult respuesta = MessageBox.Show("Esta por eliminar el producto, ¿esta seguro?", "Pregunta", MessageBoxButtons.YesNo);
-                if (respuesta == DialogResult.Yes) { 
+                if (respuesta == DialogResult.Yes)
+                {
                     this._listaProductos.RemoveAt(this.lstProductos.SelectedIndex);
                 }
                 // Se actualiza en el listbox la visualización
@@ -136,6 +137,50 @@ namespace C10_100624
             else
             {
                 MessageBox.Show("Se tiene que seleccionar un Producto desde la lista.");
+            }
+        }
+
+        Producto buscarProducto(string idBuscado)
+        {
+            if (_listaProductos.Count == 0)
+            {
+                // Lista vacía
+                throw new Exception("La lista está vacía, no se puede hacer una búsqueda.");
+            } 
+            else
+            {
+                foreach (var producto in _listaProductos)
+                {
+                    if (producto.Id == idBuscado)
+                    {
+                        // Encuentra el producto
+                        return producto;
+                    }
+                }
+                // Si NO encuentro el producto
+                throw new Exception("Producto no encontrado.");
+            }
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text != "")
+            {
+                string idIngresado = txtID.Text;
+                try
+                {
+                    this._unProducto = buscarProducto(idIngresado);
+                    MessageBox.Show($"Producto encontrado: {_unProducto.ToString}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Se tiene cargar un ID para hacer la búsqueda.");
             }
         }
     }

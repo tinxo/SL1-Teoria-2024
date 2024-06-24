@@ -106,6 +106,7 @@
             // 
             nupValorB.DecimalPlaces = 1;
             nupValorB.Location = new Point(156, 84);
+            nupValorB.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
             nupValorB.Name = "nupValorB";
             nupValorB.Size = new Size(150, 34);
             nupValorB.TabIndex = 5;
@@ -123,6 +124,7 @@
             // 
             nupValorA.DecimalPlaces = 1;
             nupValorA.Location = new Point(156, 39);
+            nupValorA.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
             nupValorA.Name = "nupValorA";
             nupValorA.Size = new Size(150, 34);
             nupValorA.TabIndex = 3;
