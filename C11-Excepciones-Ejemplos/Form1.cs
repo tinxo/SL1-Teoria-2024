@@ -14,14 +14,14 @@ namespace C11_Excepciones_Ejemplos
                 // Se lanza un tipo específico de excepción
                 throw new DivideByZeroException();
             }
-            return x * y;
+            return x / y;
         }
 
         private void btnEjemplo1_Click(object sender, EventArgs e)
         {
             // Se definen los valores de entrada para probar
-            int a = (int)nupValorA.Value;
-            int b = (int)nupValorB.Value;
+            double a = (double)nupValorA.Value;
+            double b = (double)nupValorB.Value;
             double resultado;
 
             // Se usa un bloque try-catch para verificar 
