@@ -106,11 +106,20 @@ namespace C10_100624.Stock
         public void restarUnidades(string idMovimiento, int cantidadUnidades,
             DateTime fecha, string descripcion)
         {
-            // Se genera el objeto para registrar el movimiento
-            Movimiento descarga = new Movimiento(idMovimiento, -cantidadUnidades,
-                fecha, descripcion);
-            // Se carga el movimiento en la lista del objeto
-            _movimientos.Add(descarga);
+            if ((this.StockActual - cantidadUnidades) >= 0)
+            {
+                // Se genera el objeto para registrar el movimiento
+                Movimiento descarga = new Movimiento(idMovimiento, -cantidadUnidades,
+                    fecha, descripcion);
+                // Se carga el movimiento en la lista del objeto
+                _movimientos.Add(descarga);
+            } else
+            {
+                throw new StockException("El producto no cuenta con stock para la operación.");
+                //MessageBox.Show("No puede quedar stock negativo.");
+            }
+            
+
         }
 
         public override string ToString()

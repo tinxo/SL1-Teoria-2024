@@ -77,7 +77,15 @@ namespace C10_100624
                 else
                 {
                     // Egreso
-                    _unProducto.restarUnidades("123", cantidadIngresada, DateTime.Now, observacionesMovimiento);
+                    try
+                    {
+                        _unProducto.restarUnidades("123", cantidadIngresada, DateTime.Now, observacionesMovimiento);
+                    }
+                    catch (StockException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    
                 }
                 // Se actualiza en el listbox la visualización
                 this.sincronizarListado();
